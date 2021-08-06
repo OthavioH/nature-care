@@ -11,11 +11,11 @@ class Plant {
 
   getPlantIcon() {
     if (height == PlantHeight.small)
-      return 'small_plant.png';
+      return 'assets/small_plant.png';
     else if (height == PlantHeight.medium)
-      return 'medium_plant.png';
+      return 'assets/medium_plant.png';
     else
-      return 'big_plant.png';
+      return 'assets/big_plant.png';
   }
 }
 

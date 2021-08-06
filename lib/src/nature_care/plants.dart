@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:nature_care/src/models/plant.dart';
 import 'package:nature_care/src/nature_care/expandable_fab.dart';
 import 'package:nature_care/src/models/screen_type.dart';
+import 'package:nature_care/src/nature_care/items/plant-item.dart';
 
 class Plants extends StatefulWidget {
   const Plants({Key? key}) : super(key: key);
@@ -73,10 +74,10 @@ class _PlantsState extends State<Plants> {
                     children: [
                       Container(
                         padding: EdgeInsets.only(bottom: 10),
-                        height: 70,
+                        height: 80,
                         child: Center(
                           child: Image.asset(
-                            'logo.png',
+                            'assets/logo.png',
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -169,45 +170,8 @@ class _PlantsState extends State<Plants> {
   }
 
   getPlantsWidget() {
-    return list.map((e) {
-      return InkWell(
-        onDoubleTap: () {},
-        child: Container(
-          width: 80,
-          height: 40,
-          child: Card(
-            elevation: 6,
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 8),
-              child: Column(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Center(
-                      child: Image.asset(
-                        e.getPlantIcon(),
-                        fit: BoxFit.contain,
-                        width: 100,
-                        height: 100,
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    width: double.infinity,
-                    height: 40,
-                    child: Text(
-                      e.name,
-                      textAlign: TextAlign.center,
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      );
+    return list.map((plant) {
+      return PlantItem(plant: plant);
     }).toList();
   }
 
