@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:nature_care/src/nature_care/controllers/plants_controller.dart';
+import 'package:nature_care/src/nature_care/plant_view.dart';
 import 'package:nature_care/src/nature_care/plants.dart';
 import 'package:nature_care/src/responsive_layout.dart';
 
@@ -25,7 +27,9 @@ class WidgetTree extends StatelessWidget {
             ),
             Expanded(
               flex: _size.width < 900 ? 5 : 6,
-              child: Plants(),
+              child: PlantView(
+                plant: PlantsController.chosenPlant.value,
+              ),
             ),
           ],
         ),
@@ -37,7 +41,9 @@ class WidgetTree extends StatelessWidget {
             ),
             Expanded(
               flex: _size.width > 1340 ? 7 : 10,
-              child: Plants(),
+              child: PlantView(
+                plant: PlantsController.chosenPlant.value,
+              ),
             ),
             Expanded(
               flex: _size.width > 1340 ? 2 : 4,

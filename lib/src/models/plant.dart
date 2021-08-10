@@ -9,13 +9,22 @@ class Plant {
       required this.healthStatus,
       required this.lastCareDate});
 
-  getPlantIcon() {
+  String getPlantIcon() {
     if (height == PlantHeight.small)
       return 'assets/small_plant.png';
     else if (height == PlantHeight.medium)
       return 'assets/medium_plant.png';
     else
       return 'assets/big_plant.png';
+  }
+
+  String getHealth() {
+    if (this.healthStatus == Health.healthy)
+      return 'healthy';
+    else if (this.healthStatus == Health.intermediary)
+      return 'intermediary';
+    else
+      return 'unhealthy';
   }
 }
 

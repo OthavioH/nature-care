@@ -1,14 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:nature_care/src/models/plant.dart';
+import 'package:nature_care/src/nature_care/controllers/plants_controller.dart';
 
-class PlantItem extends StatelessWidget {
+class PlantItem extends StatefulWidget {
   final Plant plant;
-  const PlantItem({required this.plant, Key? key}) : super(key: key);
+  PlantItem({required this.plant, Key? key}) : super(key: key);
 
+  @override
+  _PlantItemState createState() => _PlantItemState();
+}
+
+class _PlantItemState extends State<PlantItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onDoubleTap: () {},
+      onTap: () {
+        setState(() {
+          PlantsController.chooseNewPlant(widget.plant);
+        });
+      },
       child: Container(
         width: 80,
         height: 40,
@@ -22,7 +32,7 @@ class PlantItem extends StatelessWidget {
                   flex: 2,
                   child: Center(
                     child: Image.asset(
-                      plant.getPlantIcon(),
+                      widget.plant.getPlantIcon(),
                       fit: BoxFit.contain,
                       width: 100,
                       height: 100,
@@ -33,7 +43,7 @@ class PlantItem extends StatelessWidget {
                   width: double.infinity,
                   height: 40,
                   child: Text(
-                    plant.name,
+                    widget.plant.name,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),

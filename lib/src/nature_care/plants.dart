@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:nature_care/src/models/plant.dart';
+import 'package:nature_care/src/nature_care/controllers/plants_controller.dart';
 import 'package:nature_care/src/nature_care/expandable_fab.dart';
 import 'package:nature_care/src/models/screen_type.dart';
 import 'package:nature_care/src/nature_care/items/plant-item.dart';
@@ -12,19 +13,12 @@ class Plants extends StatefulWidget {
   _PlantsState createState() => _PlantsState();
 }
 
-List<Plant> list = List.generate(
-    20,
-    (index) => Plant(
-        name: 'Samambaia ${index + 1}',
-        healthStatus: Health.healthy,
-        lastCareDate: DateTime.now()));
+List<Plant> list = PlantsController.plantsList;
 
 class _PlantsState extends State<Plants> {
   @override
   Widget build(BuildContext context) {
-    final double screenSize = MediaQuery.of(context).size.width;
     final double screenHeight = MediaQuery.of(context).size.height;
-    final ScreenType screenType = getScreenType(screenSize);
     const _actionTitles = ['Create Post', 'Upload Photo', 'Upload Video'];
 
     void _showAction(BuildContext context, int index) {
