@@ -39,7 +39,6 @@ class _PlantsState extends State<Plants> {
     }
 
     return Scaffold(
-      drawer: _drawer(context),
       floatingActionButton: ExpandableFab(
         distance: 112.0,
         children: [
@@ -146,19 +145,6 @@ class _PlantsState extends State<Plants> {
             ),
           ),
         ),
-      ),
-    );
-  }
-
-  _drawer(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        children: [
-          DrawerHeader(
-            child: null,
-            decoration: BoxDecoration(color: Theme.of(context).accentColor),
-          )
-        ],
       ),
     );
   }

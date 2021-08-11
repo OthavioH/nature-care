@@ -36,18 +36,14 @@ class WidgetTree extends StatelessWidget {
         desktop: Row(
           children: [
             Expanded(
-              flex: _size.width > 1340 ? 3 : 6,
+              flex: _size.width > 1340 ? 7 : 10,
               child: Plants(),
             ),
             Expanded(
-              flex: _size.width > 1340 ? 7 : 10,
+              flex: _size.width > 1340 ? 3 : 6,
               child: PlantView(
                 plant: PlantsController.chosenPlant.value,
               ),
-            ),
-            Expanded(
-              flex: _size.width > 1340 ? 2 : 4,
-              child: Plants(),
             ),
           ],
         ),
