@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:nature_care/src/models/plant.dart';
-import 'package:nature_care/src/nature_care/controllers/plants_controller.dart';
+import 'package:nature_care/src/nature_care/plant_view.dart';
 
 class PlantItem extends StatefulWidget {
   final Plant plant;
@@ -15,9 +15,10 @@ class _PlantItemState extends State<PlantItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        setState(() {
-          PlantsController.chooseNewPlant(widget.plant);
-        });
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => PlantView(plant: widget.plant)));
       },
       child: Container(
         width: 80,

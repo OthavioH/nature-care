@@ -7,7 +7,8 @@ class Plant {
   Plant(
       {required this.name,
       required this.healthStatus,
-      required this.lastCareDate});
+      required this.lastCareDate,
+      required this.height});
 
   String getPlantIcon() {
     if (height == PlantHeight.small)
@@ -19,12 +20,13 @@ class Plant {
   }
 
   String getHealth() {
-    if (this.healthStatus == Health.healthy)
+    if (this.healthStatus == Health.healthy) {
       return 'healthy';
-    else if (this.healthStatus == Health.intermediary)
+    } else if (this.healthStatus == Health.intermediary) {
       return 'intermediary';
-    else
+    } else {
       return 'unhealthy';
+    }
   }
 }
 

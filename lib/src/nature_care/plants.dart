@@ -19,35 +19,17 @@ class _PlantsState extends State<Plants> {
   @override
   Widget build(BuildContext context) {
     final double screenHeight = MediaQuery.of(context).size.height;
-    const _actionTitles = ['Create Post', 'Upload Photo', 'Upload Video'];
-
-    void _showAction(BuildContext context, int index) {
-      showDialog<void>(
-        context: context,
-        builder: (context) {
-          return AlertDialog(
-            content: Text(_actionTitles[index]),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.of(context).pop(),
-                child: const Text('CLOSE'),
-              ),
-            ],
-          );
-        },
-      );
-    }
 
     return Scaffold(
       floatingActionButton: ExpandableFab(
         distance: 112.0,
         children: [
           ActionButton(
-            onPressed: () => _showAction(context, 0),
+            onPressed: () => print('criar planta'),
             icon: const Icon(Icons.local_florist),
           ),
           ActionButton(
-            onPressed: () => _showAction(context, 0),
+            onPressed: () => list = PlantsController.plantsList,
             icon: const Icon(Icons.refresh),
           ),
         ],
@@ -63,29 +45,15 @@ class _PlantsState extends State<Plants> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Stack(
-                    children: [
-                      Container(
-                        padding: EdgeInsets.only(bottom: 10),
-                        height: 80,
-                        child: Center(
-                          child: Image.asset(
-                            'assets/logo.png',
-                            fit: BoxFit.contain,
-                          ),
-                        ),
+                  Container(
+                    padding: EdgeInsets.only(bottom: 10),
+                    height: 80,
+                    child: Center(
+                      child: Image.asset(
+                        'assets/logo.png',
+                        fit: BoxFit.contain,
                       ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                          onPressed: () {},
-                          icon: Icon(
-                            Icons.menu,
-                            color: Colors.white.withOpacity(0.7),
-                          ),
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                   Row(
                     children: [

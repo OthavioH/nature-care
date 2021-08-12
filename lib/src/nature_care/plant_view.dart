@@ -20,6 +20,9 @@ class _PlantState extends State<PlantView> {
     Plant plant = widget.plant;
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
         backgroundColor: Theme.of(context).accentColor,
         actions: [
           IconButton(
@@ -49,13 +52,43 @@ class _PlantState extends State<PlantView> {
             Text(
               plant.name,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+              style: TextStyle(fontSize: 20, color: Colors.white),
             ),
-            Text(plant.getHealth(),
-                textAlign: TextAlign.center, style: TextStyle(fontSize: 18))
+            Stack(
+              children: [
+                Container(
+                  width: 100,
+                  height: 2,
+                  color: Colors.white,
+                ),
+                _getPlantHealthIcon(plant.getHealth()),
+              ],
+            )
           ],
         ),
       ),
     );
+  }
+
+  Widget _getPlantHealthIcon(String healthStatus) {
+    if (healthStatus == 'healthy') {
+      return Container(
+        width: 100,
+        height: 2,
+        color: Colors.greenAccent,
+      );
+    } else if (healthStatus == 'intermediary') {
+      return Container(
+        width: 50,
+        height: 2,
+        color: Colors.yellow,
+      );
+    } else {
+      return Container(
+        width: 10,
+        height: 2,
+        color: Colors.red,
+      );
+    }
   }
 }

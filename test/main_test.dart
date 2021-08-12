@@ -4,7 +4,8 @@ void main(List<String> args) {
   final plant = Plant(
       name: 'Samambaia',
       healthStatus: Health.healthy,
-      lastCareDate: DateTime.now());
+      lastCareDate: DateTime.now(),
+      height: PlantHeight.medium);
 
   print(plant);
 }
