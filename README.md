@@ -1,6 +1,6 @@
 # nature_care
 
-A new Flutter project.
+Flutter app to help you to take care of your plants.
 
 ## Getting Started
 
