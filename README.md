@@ -1,6 +1,6 @@
 # nature_care
 
-Flutter app to help you to take care of your plants.
+Flutter app that helps you to take care of your plants.
 
 ## Getting Started
 
